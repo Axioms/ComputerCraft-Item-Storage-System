@@ -113,11 +113,11 @@ local function getStorage()
         peripherals[#peripherals + 1] = modem.getNamesRemote()
         local remote = modem.getNamesRemote()
         for i in pairs(remote) do
-            if modem.hasTypeRemote(remote[i], "inventory") then
+            -- if modem.hasTypeRemote(remote[i], "inventory") then
                 if inExportChests(remote[i]) == false and inImportChests(remote[i]) == false and remote[i] ~= settings.get("craftingChest") then
                     storage[#storage + 1] = wrap(remote[i])
                 end
-            end
+            -- end
         end
     end
     return storage
