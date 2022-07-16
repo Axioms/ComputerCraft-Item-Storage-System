@@ -203,11 +203,11 @@ local function getStorageSize(storage)
         local getItemDetail = workingStorage[i].getItemDetail
         for k = 1, size do
             --getItemLimit is broken on cc-restitched
-            --total = total + getItemLimit(k)
-            local slotItem = getItemDetail(k)
-            if type(slotItem) ~= "nil" then
-                total = total + slotItem.maxCount
-            end
+            total = total + getItemLimit(k)
+            --local slotItem = getItemDetail(k)
+            --if type(slotItem) ~= "nil" then
+            --    total = total + slotItem.maxCount
+            --end
         end
         local speed = (epoch("utc") / 1000) - time
         speedHistory[#speedHistory + 1] = speed
